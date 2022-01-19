@@ -2,8 +2,8 @@ from __future__ import annotations
 from tokenize import Name
 
 from typing import List
-from python.movie_rental.customer import Customer
-from python.movie_rental.rental import Rental
+from movie_rental.customer import Customer
+from movie_rental.rental import Rental
 
 
 class CustomerBuilder:

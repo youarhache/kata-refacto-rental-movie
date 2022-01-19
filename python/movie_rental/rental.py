@@ -1,7 +1,10 @@
-from python.movie_rental.movie import Movie
+from dataclasses import dataclass
+from movie_rental.price_and_points_caclulators import Calculators
+from movie_rental.movie import Movie
 
 
+@dataclass
 class Rental:
-    def __init__(self, movie: Movie, days_rented: int) -> None:
-        self.movie = movie
-        self.days_rented = days_rented
+    movie: Movie
+    days_rented: int
+    calculators: Calculators
