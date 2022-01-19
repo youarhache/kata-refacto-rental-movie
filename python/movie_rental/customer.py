@@ -1,7 +1,7 @@
 from nis import match
 from tokenize import Double
 from typing import List
-from python.movie_rental.movie import Movie, PriceCodes
+from python.movie_rental.movie import PriceCodes
 from python.movie_rental.rental import Rental
 
 
