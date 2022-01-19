@@ -8,3 +8,5 @@
 /csharp/MovieRental/bin/
 /csharp/MovieRental/obj/
 /csharp/MovieRental/packages/
+**/__pycache__/
+**/.vscode/
