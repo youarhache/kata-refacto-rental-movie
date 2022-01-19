@@ -1,5 +1,5 @@
 from os import name
-from movie_rental.customer import Customer
+from movie_rental.customer import Customer, print_statement
 from movie_rental.movie import Movie, PriceCodes
 from customer_builder import CustomerBuilder
 from movie_rental.rental import Rental, rental_factory_method
@@ -30,7 +30,7 @@ def test_statement_for_regular_movie():
         + "You earned 1 frequent renter points"
     )
 
-    statement = customer.statement()
+    statement = print_statement(customer)
 
     assert statement == expected
 
@@ -46,7 +46,7 @@ def test_statement_for_new_release_movie():
         + "You earned 2 frequent renter points"
     )
 
-    statement = customer.statement()
+    statement = print_statement(customer)
 
     assert statement == expected
 
@@ -62,7 +62,7 @@ def test_statement_for_children_movie():
         + "You earned 1 frequent renter points"
     )
 
-    statement = customer.statement()
+    statement = print_statement(customer)
 
     assert statement == expected
 
@@ -89,7 +89,7 @@ def test_statement_for_many_movies():
         + "You earned 4 frequent renter points"
     )
 
-    statement = customer.statement()
+    statement = print_statement(customer)
 
     assert statement == expected
 

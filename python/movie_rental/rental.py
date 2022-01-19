@@ -4,9 +4,6 @@ from movie_rental.movie import Movie, PriceCodes
 
 
 class Rental(ABC):
-    movie: Movie
-    days_rented: int
-
     @abstractmethod
     def __init__(self, movie: Movie, days_rented: int) -> None:
         self.movie = movie
@@ -25,6 +22,7 @@ class RegularRental(Rental):
     BASE_PRICE = 2.0
     DAILY_PRICE = 1.5
     ADDITIONAL_FEE_STARING_DAY = 2
+    POINTS = 1
 
     def __init__(self, movie: Movie, days_rented: int) -> None:
         super().__init__(movie, days_rented)
@@ -38,7 +36,7 @@ class RegularRental(Rental):
         return (self.days_rented - self.ADDITIONAL_FEE_STARING_DAY) * self.DAILY_PRICE
 
     def get_frequent_renter_points(self) -> int:
-        return 1
+        return self.POINTS
 
 
 class NewReleaseRental(Rental):
@@ -63,6 +61,7 @@ class ChildrenMovieRental(Rental):
     BASE_PRICE = 1.5
     DAILY_PRICE = 1.5
     ADDITIONAL_FEE_STARING_DAY = 3
+    POINTS = 1
 
     def __init__(self, movie: Movie, days_rented: int) -> None:
         super().__init__(movie, days_rented)
@@ -76,7 +75,7 @@ class ChildrenMovieRental(Rental):
         return (self.days_rented - self.ADDITIONAL_FEE_STARING_DAY) * self.DAILY_PRICE
 
     def get_frequent_renter_points(self) -> int:
-        return 1
+        return self.POINTS
 
 
 def rental_factory_method(movie: Movie, days_rented: int) -> Rental:
