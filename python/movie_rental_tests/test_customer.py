@@ -1,6 +1,6 @@
 from os import name
 from python.movie_rental.customer import Customer
-from python.movie_rental.movie import Movie
+from python.movie_rental.movie import Movie, PriceCodes
 from customer_builder import CustomerBuilder
 from python.movie_rental.rental import Rental
 
@@ -13,7 +13,7 @@ def test_customer():
 
 def test_add_rental():
     customer = CustomerBuilder().with_name("Julia").build()
-    movie1 = Movie("Gone with the Wind", Movie.REGULAR)
+    movie1 = Movie("Gone with the Wind", PriceCodes.REGULAR)
     rental1 = Rental(movie1, days_rented=3)
     customer.add_rental(rental1)
     assert customer._rentals == [rental1]
@@ -25,7 +25,7 @@ def test_get_name():
 
 
 def test_statement_for_regular_movie():
-    movie1 = Movie("Gone with the Wind", Movie.REGULAR)
+    movie1 = Movie("Gone with the Wind", PriceCodes.REGULAR)
     rental1 = Rental(movie1, days_rented=3)
     customer = CustomerBuilder().with_name(name="Sallie").with_rentals(rental1).build()
     expected = (
@@ -41,7 +41,7 @@ def test_statement_for_regular_movie():
 
 
 def test_statement_for_new_release_movie():
-    movie1 = Movie("Star Wars", Movie.NEW_RELEASE)
+    movie1 = Movie("Star Wars", PriceCodes.NEW_RELEASE)
     rental1 = Rental(movie1, days_rented=3)
     customer = CustomerBuilder().with_name(name="Sallie").with_rentals(rental1).build()
     expected = (
@@ -57,7 +57,7 @@ def test_statement_for_new_release_movie():
 
 
 def test_statement_for_children_movie():
-    movie1 = Movie("Madagascar", Movie.CHILDRENS)
+    movie1 = Movie("Madagascar", PriceCodes.CHILDRENS)
     rental1 = Rental(movie1, days_rented=3)
     customer = CustomerBuilder().with_name(name="Sallie").with_rentals(rental1).build()
     expected = (
@@ -73,11 +73,11 @@ def test_statement_for_children_movie():
 
 
 def test_statement_for_many_movies():
-    movie1 = Movie("Madagascar", Movie.CHILDRENS)
+    movie1 = Movie("Madagascar", PriceCodes.CHILDRENS)
     rental1 = Rental(movie1, days_rented=6)
-    movie2 = Movie("Star Wars", Movie.NEW_RELEASE)
+    movie2 = Movie("Star Wars", PriceCodes.NEW_RELEASE)
     rental2 = Rental(movie2, days_rented=2)
-    movie3 = Movie("Gone with the Wind", Movie.REGULAR)
+    movie3 = Movie("Gone with the Wind", PriceCodes.REGULAR)
     rental3 = Rental(movie3, days_rented=8)
     customer = (
         CustomerBuilder()
