@@ -1,6 +1,3 @@
-from functools import total_ordering
-from nis import match
-from tokenize import Double
 from typing import List
 from movie_rental.movie import PriceCodes
 from movie_rental.rental import Rental
