@@ -1,8 +1,8 @@
 from nis import match
 from tokenize import Double
 from typing import List
-from python.movie_rental.movie import PriceCodes
-from python.movie_rental.rental import Rental
+from movie_rental.movie import PriceCodes
+from movie_rental.rental import Rental
 
 
 class Customer:
@@ -23,7 +23,7 @@ class Customer:
         result = "Rental Record for " + self.name + "\n"
 
         for rental in self._rentals:
-            this_amount = rental.get_amount()
+            this_amount = rental.get_price()
             total_amount += this_amount
 
             # add frequent renter points
