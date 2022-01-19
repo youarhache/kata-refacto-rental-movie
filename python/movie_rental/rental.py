@@ -1,8 +1,7 @@
-from dataclasses import dataclass
 from python.movie_rental.movie import Movie
 
 
-@dataclass
 class Rental:
-    movie: Movie
-    days_rented: int
+    def __init__(self, movie: Movie, days_rented: int) -> None:
+        self.movie = movie
+        self.days_rented = days_rented

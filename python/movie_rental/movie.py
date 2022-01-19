@@ -1,5 +1,4 @@
 from enum import Enum
-from dataclasses import dataclass
 
 
 class PriceCodes(Enum):
@@ -8,7 +7,7 @@ class PriceCodes(Enum):
     REGULAR = 0
 
 
-@dataclass
 class Movie:
-    title: str
-    price_code: PriceCodes
+    def __init__(self, title: str, price_code: PriceCodes) -> None:
+        self.title = title
+        self.price_code = price_code
