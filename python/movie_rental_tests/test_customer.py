@@ -19,11 +19,6 @@ def test_add_rental():
     assert customer._rentals == [rental1]
 
 
-def test_get_name():
-    customer = Customer(name="David")
-    assert customer.get_name() == "David"
-
-
 def test_statement_for_regular_movie():
     movie1 = Movie("Gone with the Wind", PriceCodes.REGULAR)
     rental1 = Rental(movie1, days_rented=3)
